@@ -1,25 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import { useDispatch, useSelector } from 'react-redux';
+import Header from './components/header/Header';
+import Content from './components/content/Content';
+import Footer from './components/footer/Footer';
+import { getData } from './services/getData';
+
 
 function App() {
+
+  const dispatch = useDispatch();
+  const {news} = useSelector((state: any) => state.newsReducer);
+
+  useEffect(
+    () => {
+      if(! news.length) {
+        const getNewsData = async () => {
+          const data = await getData();        
+          dispatch({
+            type: "setNews",
+            payload: data
+          });
+        };
+        getNewsData();
+      }
+    }, []
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header/>
+      <Content/>
+      <Footer/>
+    </>
+
   );
 }
 
