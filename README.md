@@ -12,28 +12,28 @@ Note that the API endpoint does not provide category and subcategory information
 
 The project requires the following dependencies:
 
-### React 18
+### 1. React 18
 
-### Material UI
+### 2. Material UI
 
-### React Router Dom
+### 3. React Router Dom
 
-### Axios
+### 4. Axios
 
-### Running the App
+# Running the App
 
-# To run the application, follow these steps:
+To run the application, follow these steps:
 
-### Clone the project from the repository.
+### 1. Clone the project from the repository.
 
-### Install the dependencies by running npm install.
+### 2. Install the dependencies by running npm install.
 
-### run "npm start" or Build the Docker image by running docker build -t myapp ..
+### 3. run "npm start" or Build the Docker image by running docker build -t myapp ..
 
-### Run the Docker container by running docker run -p 3000:3000 myapp.
+### 4. Run the Docker container by running docker run -p 3000:3000 myapp.
 
-### Open a web browser and go to http://localhost:3000 to view the application.
+### 5. Open a web browser and go to http://localhost:3000 to view the application.
 
-## Conclusion
+# Conclusion
 
 In conclusion, this project is a React 18 web application that uses Material UI, React Router Dom, and Axios. It allows the user to view a list of news by category and subcategory. The included Dockerfile makes it easy to deploy the application in a container environment.
