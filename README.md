@@ -12,27 +12,27 @@ Note that the API endpoint does not provide category and subcategory information
 
 The project requires the following dependencies:
 
-### 1. React 18
+1. React 18
 
-### 2. Material UI
+2. Material UI
 
-### 3. React Router Dom
+3. React Router Dom
 
-### 4. Axios
+4. Axios
 
 # Running the App
 
 To run the application, follow these steps:
 
-### 1. Clone the project from the repository.
+1. Clone the project from the repository.
 
-### 2. Install the dependencies by running npm install.
+2. Install the dependencies by running npm install.
 
-### 3. run "npm start" or Build the Docker image by running docker build -t myapp ..
+3. run "npm start" or Build the Docker image by running docker build -t myapp ..
 
-### 4. Run the Docker container by running docker run -p 3000:3000 myapp.
+4. Run the Docker container by running docker run -p 3000:3000 myapp.
 
-### 5. Open a web browser and go to http://localhost:3000 to view the application.
+5. Open a web browser and go to http://localhost:3000 to view the application.
 
 # Conclusion
 

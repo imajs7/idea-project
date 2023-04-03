@@ -25,7 +25,7 @@ const HomeComponent = (props: Props) => {
 
   return (
     <>
-    { categories.length &&
+    { categories.length ?
         categories.map((cat: string, idx : number) => {
           return (
             <Box key={idx} sx={{marginBlock: '1rem'}}>
@@ -38,7 +38,11 @@ const HomeComponent = (props: Props) => {
               </Box>
             </Box>
           )
-        })
+        }) : (
+          <Box>
+            <Typography>Loading...</Typography>
+          </Box>
+        )
     }
     </>
   )

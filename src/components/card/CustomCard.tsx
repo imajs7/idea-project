@@ -13,10 +13,14 @@ const CustomCard = (props: Props) => {
 
   const {news} = props;
 
+  function limit (string = '') {  
+    return string.substring(0, 30) + '...'
+  }
+
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
       <Card variant="outlined" sx={{padding: '0.5rem'}}>
-        <CardHeader title={news.title}/>
+        <CardHeader title={limit(news.title)} sx={{textTransform: 'capitalize'}}/>
         <Divider/>
         <CardContent>
           <Typography variant='body1'>{news.body}</Typography>

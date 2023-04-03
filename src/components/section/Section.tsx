@@ -33,8 +33,13 @@ const Section = (props: Props) => {
           <Grid container spacing={2}>
 
           <>
-            {
-              newsItems.map((item, idx) => (<CustomCard key={idx} news={item}/>))
+            { newsItems.length ? (
+                newsItems.map((item, idx) => (<CustomCard key={idx} news={item}/>))
+              ) : (
+                <Box>
+                  <Typography>Nothing to display...</Typography>
+                </Box>
+              )
             }
           </>
 
