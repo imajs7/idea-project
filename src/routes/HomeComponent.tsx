@@ -1,21 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
-import INews from '../models/news';
-import Section from '../components/section/Section';
+import { Box, Button, Typography } from '@mui/material';
+import { getAllCategories } from '../services/getData';
+import { Link } from 'react-router-dom';
 
-type Props = {}
+type Props = {
+  
+}
 
 const HomeComponent = (props: Props) => {
 
-  const {news} = useSelector((state: any) => state.newsReducer);
-  const categories = ['cat1', 'cat1', 'cat3','cat4', 'cat5', 'cat6', 'cat7', 'cat8', 'cat9'];
+  const {catTree} = useSelector((state: any) => state.treeReducer);
+  const [categories, setCategories] = useState<string[]>([]);
+
+  useEffect(
+    () => {
+      const getCategories = async() => {
+        const data = await getAllCategories();
+        setCategories(data);
+      };
+      getCategories();
+    }, []
+  );
 
   return (
     <>
-    {
-        categories.map((cat, idx) => {
-        const newsItems = news.filter((item : INews) => item.category === cat);
-        return <Section key={idx} newsItems={newsItems} heading={cat} />
+    { categories.length &&
+        categories.map((cat: string, idx : number) => {
+          return (
+            <Box key={idx} sx={{marginBlock: '1rem'}}>
+              <Typography variant='h5' sx={{textTransform: 'capitalize'}}>{cat}</Typography>
+              <Box sx={{border: '2px', borderColor: '#777', borderRadius: '0.5rem', padding: '1.25rem'}}>
+                { catTree[cat] && (catTree[cat]).length &&
+                  (catTree[cat]).map( (sub: string, id: number) => <Button key={id} to={`/show/${cat}/${sub}`} variant='contained' sx={{margin: '0.5rem'}} component={Link}>{sub}</Button> )
+                }
+
+              </Box>
+            </Box>
+          )
         })
     }
     </>

@@ -3,5 +3,6 @@ export default interface INews {
     id: number,
     title: string,
     body: string,
-    category: string
+    category: string,
+    subcategory: string
 }

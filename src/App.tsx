@@ -4,10 +4,8 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { useDispatch, useSelector } from 'react-redux';
-import Header from './components/header/Header';
-import Content from './components/content/Content';
-import Footer from './components/footer/Footer';
-import { getData } from './services/getData';
+import {Header, Content, Footer} from './components';
+import { buildTree, getData } from './services/getData';
 
 
 function App() {
@@ -19,10 +17,16 @@ function App() {
     () => {
       if(! news.length) {
         const getNewsData = async () => {
-          const data = await getData();        
+          const newsData = await getData();
+          const treeData = await buildTree();   
+             
           dispatch({
             type: "setNews",
-            payload: data
+            payload: newsData
+          });
+          dispatch({
+            type: "setTree",
+            payload: treeData
           });
         };
         getNewsData();

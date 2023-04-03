@@ -4,13 +4,12 @@ import { Route, Routes } from 'react-router'
 import { Link } from 'react-router-dom';
 
 const HomeComponent = React.lazy(() => import('../../routes/HomeComponent'));
-const CategoryComponent = React.lazy(() => import('../../routes/CategoryComponent'));
+const FilteredNews = React.lazy(() => import('../../routes/FilteredNews'));
 
 type Props = {}
 
 const Content = (props: Props) => {
-
-  
+   
   
   return (
     <Container sx={{paddingTop: '70px', paddingBottom: '30px',}}>
@@ -21,7 +20,7 @@ const Content = (props: Props) => {
 
           <Route index  element={<HomeComponent/>} />
 
-          <Route path='/category/:category' element={<CategoryComponent/>}/>
+          <Route path='/show/:cat/:subcat' element={<FilteredNews/>}/>
 
           <Route path='*' element={
               <div>

@@ -15,4 +15,15 @@ export const newsReducer = createReducer( initialState, (builder) => {
       .addCase(unsetNews, (state, action) => {
         state.news = []
       })
-  } );
+} );
+
+const initialTree = {
+  catTree: {}
+};
+const setTree = createAction<any>('setTree');
+export const treeReducer = createReducer( initialTree, (builder) => {
+  builder
+    .addCase(setTree, (state : {catTree: any}, action) => {
+      state.catTree = action.payload
+    })
+} );
